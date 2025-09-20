@@ -1,0 +1,35 @@
+{
+  "id": "chatcmpl-65ea318b-f478-4d19-884d-a9bd52c13147",
+  "object": "chat.completion",
+  "created": 1758344291,
+  "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The image depicts a serene aerial view of the Pyramid of the Sun, a prominent ancient Mesoamerican pyramid located in Teotihuacán, Mexico. The pyramid is surrounded by numerous hot air balloons, which are floating gently in the sky. \n\nThe Pyramid of the Sun is a large, stepped pyramid with a flat top, constructed from stone and earth. It is situated in the center of the image, with its base surrounded by trees and other vegetation. The hot air balloons are scattered throughout the sky, adding a pop of color to the scene. They come in various shapes and sizes, with different patterns and designs. In the background, there are mountains and hills, as well as a cityscape that stretches out as far as the eye can see. The overall atmosphere of the image is one of peace and tranquility, with the pyramid and hot air balloons creating a sense of wonder and awe."
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "queue_time": 0.093915598,
+    "prompt_tokens": 1033,
+    "prompt_time": 0.028824523,
+    "completion_tokens": 182,
+    "completion_time": 0.423488086,
+    "total_tokens": 1215,
+    "total_time": 0.452312609
+  },
+  "xgroq": {
+    "id": "req_01k5jqs915fv2a4c8snby32hhc"
+  },
+  "usage_breakdown": null,
+  "system_fingerprint": "fp_5d3e4e58e1",
+  "x_groq": {
+    "id": "req_01k5jqs915fv2a4c8snby32hhc"
+  },
+  "service_tier": "on_demand"
+}
