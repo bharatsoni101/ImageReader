@@ -1,14 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>ImageReader Home</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        .container { max-width: 600px; margin: auto; }
-        .section { margin-bottom: 40px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
-        .result { margin-top: 10px; color: #333; background: #f9f9f9; padding: 10px; border-radius: 4px; }
-        label { font-weight: bold; }
-    </style>
+    <link rel="stylesheet" href="/Style.css">
 </head>
 <body>
 <div class="container">
@@ -24,37 +18,19 @@
     </div>
     <div class="section">
         <h2>Image to Text</h2>
-        <form id="imageForm" onsubmit="return imageSubmit();" enctype="multipart/form-data">
+        <form id="imageForm" method="post" action="/image-to-text" enctype="multipart/form-data" onsubmit="return imageSubmit();">
             <label for="imagePrompt">Enter your prompt:</label><br>
-            <input type="text" id="imagePrompt" name="imagePrompt" style="width:80%;" required><br><br>
-            <label for="imageFile">Upload image (HotAirBalloon.JPG will be used):</label><br>
-            <input type="file" id="imageFile" name="imageFile" accept="image/*" disabled><br>
-            <small>Note: Only the default image is used for now.</small><br>
+            <input type="text" id="imagePrompt" name="prompt" style="width:80%;" required><br><br>
+            <label for="imageFile">Upload image:</label><br>
+            <input type="file" id="imageFile" name="image" accept="image/*" required onchange="showImagePreview(event)"><br>
+            <small>Note: You can upload any image of your choice.</small><br>
+            <img id="imagePreview" src="" alt="image Preview" style="max-width: 100%; display: none; margin-top: 10px;"/>
             <button type="submit">Send</button>
         </form>
         <div id="imageResult" class="result"></div>
     </div>
 </div>
-<script>
-function chatSubmit() {
-    var prompt = document.getElementById('chatPrompt').value;
-    fetch('/chat?prompt=' + encodeURIComponent(prompt))
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('chatResult').innerText = data;
-        });
-    return false;
-}
-function imageSubmit() {
-    var prompt = document.getElementById('imagePrompt').value;
-    fetch('/image-to-text?prompt=' + encodeURIComponent(prompt))
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('imageResult').innerText = data;
-        });
-    return false;
-}
-</script>
+<script src="/marked.min.js"></script>
+<script src="/MainScript.js"></script>
 </body>
 </html>
-
